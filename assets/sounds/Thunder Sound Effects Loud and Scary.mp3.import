@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c80gw6xiq7fmu"
+path="res://.godot/imported/Thunder Sound Effects Loud and Scary.mp3-4e642680e51c87128146f7dd0994d918.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Thunder Sound Effects Loud and Scary.mp3"
+dest_files=["res://.godot/imported/Thunder Sound Effects Loud and Scary.mp3-4e642680e51c87128146f7dd0994d918.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

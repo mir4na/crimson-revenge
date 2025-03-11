@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=3 uid="uid://bjr1ead4p6dbe"]
+
+[ext_resource type="Script" path="res://scripts/victory.gd" id="1_dfggr"]
+[ext_resource type="Texture2D" uid="uid://ctlyueedjps10" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Yellow_3Slides.png" id="1_lg32r"]
+[ext_resource type="Texture2D" uid="uid://dmil1mprnfxmw" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Red_3Slides.png" id="2_6asnt"]
+[ext_resource type="Shader" path="res://scripts/pause.gdshader" id="2_kudn8"]
+[ext_resource type="Texture2D" uid="uid://4rak2ddysemx" path="res://assets/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="3_7qoo4"]
+[ext_resource type="FontFile" uid="uid://cyxppodx8grf7" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="4_f8chv"]
+[ext_resource type="FontFile" uid="uid://cgndmhx1ufikr" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/kirifont/KiriFont.ttf" id="5_koivu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga5uj"]
+shader = ExtResource("2_kudn8")
+shader_parameter/lod = 0.326
+
+[sub_resource type="Animation" id="Animation_drbtv"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.326]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3p73v"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.272, 0.326]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0uih"]
+_data = {
+"RESET": SubResource("Animation_drbtv"),
+"blur": SubResource("Animation_3p73v")
+}
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dfggr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ga5uj")
+layout_mode = 0
+offset_left = 52.0
+offset_top = 5.0
+offset_right = 1201.0
+offset_bottom = 664.0
+
+[node name="PauseMenu" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -169.5
+offset_right = 189.0
+offset_bottom = 169.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RibbonYellow3Slides" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(189, 180.5)
+scale = Vector2(1.13802, 1.28125)
+texture = ExtResource("1_lg32r")
+
+[node name="Continue" type="Button" parent="PauseMenu/RibbonYellow3Slides"]
+offset_left = -63.0
+offset_top = -30.0
+offset_right = 62.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("4_f8chv")
+theme_override_font_sizes/font_size = 30
+
+[node name="RibbonRed3Slides" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(188, 267.5)
+scale = Vector2(1.01563, 1.05469)
+texture = ExtResource("2_6asnt")
+
+[node name="Quit" type="Button" parent="PauseMenu/RibbonRed3Slides"]
+offset_left = -63.0
+offset_top = -34.0
+offset_right = 62.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("4_f8chv")
+theme_override_font_sizes/font_size = 31
+
+[node name="BannerHorizontal" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(184, 64.5)
+scale = Vector2(1.73926, 0.885417)
+texture = ExtResource("3_7qoo4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s0uih")
+}
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 209.0
+offset_right = 647.0
+offset_bottom = 269.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_koivu")
+theme_override_font_sizes/font_size = 25
+text = "VICTORY!"
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 299.0
+offset_right = 637.0
+offset_bottom = 339.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_f8chv")
+theme_override_font_sizes/font_size = 32
+text = "CONTINUE"
+
+[node name="Title4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 385.0
+offset_right = 605.0
+offset_bottom = 425.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_f8chv")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[connection signal="pressed" from="PauseMenu/RibbonYellow3Slides/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/RibbonRed3Slides/Quit" to="." method="_on_quit_pressed"]

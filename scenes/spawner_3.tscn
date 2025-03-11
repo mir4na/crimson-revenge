@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://exppy51geod0"]
+
+[ext_resource type="Texture2D" uid="uid://chhcqkv74mhp2" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House.png" id="1_ajkq0"]
+[ext_resource type="Script" path="res://scripts/enemy/spawner_3.gd" id="2_0dqfe"]
+[ext_resource type="PackedScene" uid="uid://peolt312vnx5" path="res://scenes/health_bar.tscn" id="3_uj36x"]
+[ext_resource type="Texture2D" uid="uid://day7u6sfwvb4m" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House_Destroyed.png" id="4_hiwxf"]
+[ext_resource type="Script" path="res://scripts/enemy/spawner3_hurtbox.gd" id="5_vym74"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kf04i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ajkq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hiwxf")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7bntx"]
+radius = 46.9618
+height = 132.727
+
+[node name="BigSpawner" type="Sprite2D"]
+position = Vector2(680.625, 622.625)
+scale = Vector2(3.52148, 2.94401)
+texture = ExtResource("1_ajkq0")
+script = ExtResource("2_0dqfe")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.8
+autostart = true
+
+[node name="HealthBar" parent="." instance=ExtResource("3_uj36x")]
+offset_left = -171.719
+offset_top = -100.807
+offset_right = -42.7191
+offset_bottom = -90.8071
+max_value = 250.0
+value = 250.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.543549, -1.3593)
+sprite_frames = SubResource("SpriteFrames_kf04i")
+animation = &"broken"
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_vym74")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_7bntx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

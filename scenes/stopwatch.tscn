@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7cvdjc6t7p75"]
+
+[ext_resource type="Script" path="res://scripts/player/stopwatch.gd" id="1_6eo1c"]
+
+[node name="Stopwatch" type="Node"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -505.0
+offset_top = 149.0
+offset_right = -450.0
+offset_bottom = 172.0
+text = "00:00:00"
+script = ExtResource("1_6eo1c")

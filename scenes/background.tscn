@@ -1,0 +1,246 @@
+[gd_scene load_steps=29 format=3 uid="uid://wtkblgghpge5"]
+
+[ext_resource type="Texture2D" uid="uid://c37frnr5e0www" path="res://assets/background-trim.png" id="1_utmhj"]
+[ext_resource type="Texture2D" uid="uid://lmrjv4rf6krw" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Buildings/Castle/Castle_Blue.png" id="2_5voxg"]
+[ext_resource type="Texture2D" uid="uid://8e2cinx6tq3x" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Buildings/Tower/Tower_Purple.png" id="3_byf6w"]
+[ext_resource type="Texture2D" uid="uid://ctoa0s2frlngf" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Buildings/House/House_Yellow.png" id="4_bbd3u"]
+[ext_resource type="Texture2D" uid="uid://hv10xxtq486f" path="res://assets/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="5_nh66i"]
+[ext_resource type="Texture2D" uid="uid://chhcqkv74mhp2" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House.png" id="6_fptds"]
+[ext_resource type="Texture2D" uid="uid://e8l4snj776v4" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Purple/Torch_Purple.png" id="7_xxdr1"]
+[ext_resource type="Texture2D" uid="uid://b16l01qt0e2n7" path="res://assets/boss_demon_slime_FREE_v1.0/spritesheets/demon_slime_FREE_v1.0_288x160_spritesheet.png" id="8_7bnif"]
+[ext_resource type="Texture2D" uid="uid://bwgxr8amv8vxl" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Warrior/Yellow/Warrior_Yellow.png" id="9_lm887"]
+[ext_resource type="Texture2D" uid="uid://br8yw6f1cbasj" path="res://assets/Tiny Swords (Update 010)/Resources/Trees/Tree.png" id="10_1m2b1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qteik"]
+atlas = ExtResource("8_7bnif")
+region = Rect2(0, 0, 288, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf031"]
+atlas = ExtResource("8_7bnif")
+region = Rect2(288, 0, 288, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4bop"]
+atlas = ExtResource("8_7bnif")
+region = Rect2(576, 0, 288, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5g77"]
+atlas = ExtResource("8_7bnif")
+region = Rect2(864, 0, 288, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08r7b"]
+atlas = ExtResource("8_7bnif")
+region = Rect2(1152, 0, 288, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_napd7"]
+atlas = ExtResource("8_7bnif")
+region = Rect2(1440, 0, 288, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_deqhy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qteik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf031")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4bop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5g77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08r7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_napd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yopc"]
+atlas = ExtResource("9_lm887")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c68yr"]
+atlas = ExtResource("9_lm887")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0xx1"]
+atlas = ExtResource("9_lm887")
+region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68v20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yopc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c68yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0xx1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bv3q"]
+atlas = ExtResource("10_1m2b1")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd8k0"]
+atlas = ExtResource("10_1m2b1")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31kg1"]
+atlas = ExtResource("10_1m2b1")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr5f5"]
+atlas = ExtResource("10_1m2b1")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xwln"]
+atlas = ExtResource("10_1m2b1")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn7tu"]
+atlas = ExtResource("10_1m2b1")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fndar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bv3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd8k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31kg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr5f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xwln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn7tu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Background" type="Node2D"]
+
+[node name="Background-trim" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(568.25, 187.25)
+scale = Vector2(2.55423, 2.91606)
+texture = ExtResource("1_utmhj")
+
+[node name="CastleBlue" type="Sprite2D" parent="."]
+position = Vector2(328, 484)
+scale = Vector2(1.53125, 1.42578)
+texture = ExtResource("2_5voxg")
+
+[node name="TowerPurple" type="Sprite2D" parent="."]
+position = Vector2(75, 470)
+scale = Vector2(1.73828, 1.78516)
+texture = ExtResource("3_byf6w")
+
+[node name="HouseYellow" type="Sprite2D" parent="."]
+position = Vector2(561, 555)
+scale = Vector2(1.39844, 1.17188)
+texture = ExtResource("4_bbd3u")
+
+[node name="TilemapFlat" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(827, 514)
+texture = ExtResource("5_nh66i")
+
+[node name="TilemapFlat2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(907, 512)
+texture = ExtResource("5_nh66i")
+
+[node name="GoblinHouse" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1101, 562)
+scale = Vector2(1.39063, 1.18229)
+texture = ExtResource("6_fptds")
+
+[node name="TorchPurple" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1096, 485)
+scale = Vector2(1.05729, 1.06771)
+texture = ExtResource("7_xxdr1")
+hframes = 7
+vframes = 5
+frame = 24
+
+[node name="TorchPurple2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1006, 583)
+scale = Vector2(1.11787, 1.14)
+texture = ExtResource("7_xxdr1")
+hframes = 7
+vframes = 5
+frame = 22
+
+[node name="TorchPurple3" type="Sprite2D" parent="."]
+position = Vector2(963, 571)
+scale = Vector2(1.45815, 1.56647)
+texture = ExtResource("7_xxdr1")
+hframes = 7
+vframes = 5
+frame = 23
+
+[node name="DemonIdle" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(923, 206)
+scale = Vector2(5.6059, 6.36875)
+sprite_frames = SubResource("SpriteFrames_deqhy")
+frame_progress = 0.147416
+
+[node name="WarriorYellow" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(712, 357)
+scale = Vector2(4.89714, 5.48828)
+sprite_frames = SubResource("SpriteFrames_68v20")
+frame_progress = 0.474343
+
+[node name="Tree" type="AnimatedSprite2D" parent="."]
+position = Vector2(661.5, 572.5)
+scale = Vector2(1.08854, 0.932292)
+sprite_frames = SubResource("SpriteFrames_fndar")
+frame_progress = 0.42311
+
+[node name="Tree2" type="AnimatedSprite2D" parent="."]
+position = Vector2(730, 559)
+scale = Vector2(1.19142, 1.02833)
+sprite_frames = SubResource("SpriteFrames_fndar")
+frame_progress = 0.237368
+
+[node name="Tree3" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(794.932, 574.621)
+scale = Vector2(1.05279, 0.816451)
+sprite_frames = SubResource("SpriteFrames_fndar")
+frame_progress = 0.0919147
+
+[node name="Tree4" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(857, 581)
+scale = Vector2(0.834382, 0.708315)
+sprite_frames = SubResource("SpriteFrames_fndar")
+frame_progress = 0.246781

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clnsfh7dms63r"
+path="res://.godot/imported/Goblin Laugh - Sound Effect (HD).mp3-bb224f84f6984c663587bd6cbdf6c41c.mp3str"
+
+[deps]
+
+source_file="res://assets/Tiny Swords (Update 010)/Terrain/Water/Goblin Laugh - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Goblin Laugh - Sound Effect (HD).mp3-bb224f84f6984c663587bd6cbdf6c41c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

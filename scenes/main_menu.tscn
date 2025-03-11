@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfuvuryjlkvq6"]
+
+[ext_resource type="Script" path="res://scripts/menu/main_menu.gd" id="1_oy165"]
+[ext_resource type="Texture2D" uid="uid://bl5xaubct06s6" path="res://assets/bg_menu.png" id="1_udt8t"]
+[ext_resource type="Texture2D" uid="uid://4rak2ddysemx" path="res://assets/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="2_gqgj7"]
+[ext_resource type="Texture2D" uid="uid://dmil1mprnfxmw" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Red_3Slides.png" id="4_tmuj4"]
+[ext_resource type="Texture2D" uid="uid://ctlyueedjps10" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Yellow_3Slides.png" id="5_463fx"]
+[ext_resource type="FontFile" uid="uid://cgndmhx1ufikr" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/kirifont/KiriFont.ttf" id="8_jx2df"]
+[ext_resource type="FontFile" uid="uid://cyxppodx8grf7" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="8_puasl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cptw6"]
+texture = ExtResource("1_udt8t")
+modulate_color = Color(0.295867, 0.295866, 0.295866, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_oy165")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -5.0
+offset_top = 2.0
+offset_right = 1147.0
+offset_bottom = 653.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cptw6")
+
+[node name="BannerHorizontal" type="Sprite2D" parent="."]
+position = Vector2(297, 111)
+scale = Vector2(4.24479, 1.30208)
+texture = ExtResource("2_gqgj7")
+
+[node name="RibbonRed3Slides" type="Sprite2D" parent="."]
+position = Vector2(304.25, 486.094)
+scale = Vector2(1.16927, 1.25293)
+texture = ExtResource("4_tmuj4")
+
+[node name="RibbonYellow3Slides" type="Sprite2D" parent="."]
+position = Vector2(306, 323.5)
+scale = Vector2(1.79167, 1.60937)
+texture = ExtResource("5_463fx")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 103.0
+offset_top = 97.0
+offset_right = 523.0
+offset_bottom = 163.0
+theme_override_colors/font_color = Color(0, 0.0784314, 0, 1)
+theme_override_fonts/font = ExtResource("8_jx2df")
+theme_override_font_sizes/font_size = 35
+text = "Crimson Revenge"
+
+[node name="ButtonStart" type="Button" parent="."]
+z_index = 2
+offset_left = 198.0
+offset_top = 276.5
+offset_right = 416.0
+offset_bottom = 342.5
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+
+[node name="Start" type="Label" parent="ButtonStart"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -5.0
+offset_right = 63.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_puasl")
+theme_override_font_sizes/font_size = 46
+text = "START"
+
+[node name="ButtonQuit" type="Button" parent="."]
+z_index = 2
+offset_left = 236.25
+offset_top = 449.094
+offset_right = 378.25
+offset_bottom = 503.094
+
+[node name="Quit" type="Label" parent="ButtonQuit"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = -7.0
+offset_right = 110.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("8_puasl")
+theme_override_font_sizes/font_size = 39
+text = "QUIT"
+
+[connection signal="pressed" from="ButtonStart" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonQuit" to="." method="_on_button_quit_pressed"]

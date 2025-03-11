@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://kkicfyp4c0fu"]
+
+[ext_resource type="Script" path="res://scripts/epilogue.gd" id="1_3nix1"]
+[ext_resource type="Texture2D" uid="uid://bh8afiskooulx" path="res://assets/white.png" id="2_f3pss"]
+[ext_resource type="FontFile" uid="uid://cyxppodx8grf7" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="3_4856e"]
+
+[node name="Epilogue" type="Node2D"]
+script = ExtResource("1_3nix1")
+
+[node name="White" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(576.5, 323)
+scale = Vector2(5.14222, 3.04444)
+texture = ExtResource("2_f3pss")
+
+[node name="TextLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 193.0
+offset_right = 1155.0
+offset_bottom = 444.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_4856e")
+theme_override_font_sizes/font_size = 30
+
+[node name="SkipLabel" type="Label" parent="."]
+offset_left = 722.0
+offset_top = 593.0
+offset_right = 1136.0
+offset_bottom = 629.0
+theme_override_fonts/font = ExtResource("3_4856e")
+theme_override_font_sizes/font_size = 30
+text = "Press SPACE to skip the scene"

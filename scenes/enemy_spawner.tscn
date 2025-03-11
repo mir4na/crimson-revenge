@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv86rjk0t8jcm"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy_spawner.gd" id="1_uaqu4"]
+[ext_resource type="Texture2D" uid="uid://chhcqkv74mhp2" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House.png" id="2_aad3n"]
+
+[node name="EnemySpawner" type="Node"]
+script = ExtResource("1_uaqu4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.083
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(300, -100)
+scale = Vector2(1.50781, 1.27083)
+texture = ExtResource("2_aad3n")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

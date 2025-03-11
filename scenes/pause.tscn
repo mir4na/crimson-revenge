@@ -1,0 +1,205 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5vlmtcldxhg0"]
+
+[ext_resource type="Texture2D" uid="uid://ctlyueedjps10" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Yellow_3Slides.png" id="1_e47sg"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_gnenv"]
+[ext_resource type="Shader" path="res://scripts/pause.gdshader" id="1_xvov0"]
+[ext_resource type="Texture2D" uid="uid://dmil1mprnfxmw" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Red_3Slides.png" id="2_pe0ai"]
+[ext_resource type="Texture2D" uid="uid://dkju86uu01tdi" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="3_tuqff"]
+[ext_resource type="Texture2D" uid="uid://4rak2ddysemx" path="res://assets/Tiny Swords (Update 010)/UI/Banners/Banner_Horizontal.png" id="4_q6gw5"]
+[ext_resource type="FontFile" uid="uid://cyxppodx8grf7" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.ttf" id="4_tdp2w"]
+[ext_resource type="FontFile" uid="uid://cgndmhx1ufikr" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/kirifont/KiriFont.ttf" id="6_omflk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga5uj"]
+shader = ExtResource("1_xvov0")
+shader_parameter/lod = 0.326
+
+[sub_resource type="Animation" id="Animation_drbtv"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.326]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3p73v"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.272, 0.326]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PauseMenu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0uih"]
+_data = {
+"RESET": SubResource("Animation_drbtv"),
+"blur": SubResource("Animation_3p73v")
+}
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gnenv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ga5uj")
+layout_mode = 0
+offset_left = 52.0
+offset_top = 5.0
+offset_right = 1201.0
+offset_bottom = 664.0
+
+[node name="PauseMenu" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -169.5
+offset_right = 189.0
+offset_bottom = 169.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RibbonYellow3Slides" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(186, 121.5)
+scale = Vector2(1.13802, 1.28125)
+texture = ExtResource("1_e47sg")
+
+[node name="Resume" type="Button" parent="PauseMenu/RibbonYellow3Slides"]
+offset_left = -63.0
+offset_top = -30.0
+offset_right = 62.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("4_tdp2w")
+theme_override_font_sizes/font_size = 30
+
+[node name="RibbonRed3Slides" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(188, 267.5)
+scale = Vector2(1.01563, 1.05469)
+texture = ExtResource("2_pe0ai")
+
+[node name="Quit" type="Button" parent="PauseMenu/RibbonRed3Slides"]
+offset_left = -63.0
+offset_top = -34.0
+offset_right = 62.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("4_tdp2w")
+theme_override_font_sizes/font_size = 31
+
+[node name="RibbonBlue3Slides" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(187, 199.5)
+scale = Vector2(1.07292, 1.15234)
+texture = ExtResource("3_tuqff")
+
+[node name="Restart" type="Button" parent="PauseMenu/RibbonBlue3Slides"]
+offset_left = -61.0
+offset_top = -35.0
+offset_right = 63.0
+offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("4_tdp2w")
+theme_override_font_sizes/font_size = 29
+
+[node name="BannerHorizontal" type="Sprite2D" parent="PauseMenu"]
+position = Vector2(185, -8.5)
+scale = Vector2(1.61393, 0.885417)
+texture = ExtResource("4_q6gw5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s0uih")
+}
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 121.0
+offset_right = 640.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_omflk")
+theme_override_font_sizes/font_size = 25
+text = "Crimson
+Revenge"
+
+[node name="Title2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 239.0
+offset_right = 626.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_tdp2w")
+theme_override_font_sizes/font_size = 32
+text = "RESUME"
+
+[node name="Title3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 317.0
+offset_right = 634.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_tdp2w")
+theme_override_font_sizes/font_size = 32
+text = "RESTART"
+
+[node name="Title4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 549.0
+offset_top = 385.0
+offset_right = 605.0
+offset_bottom = 425.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_tdp2w")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[connection signal="pressed" from="PauseMenu/RibbonYellow3Slides/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/RibbonRed3Slides/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PauseMenu/RibbonBlue3Slides/Restart" to="." method="_on_restart_pressed"]

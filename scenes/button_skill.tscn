@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv54a2jhnjrie"]
+
+[ext_resource type="Texture2D" uid="uid://m4corgnbvdii" path="res://assets/skillset/icon/icon1batareya/111.png" id="1_5q2nf"]
+[ext_resource type="Script" path="res://scripts/player/button_skill.gd" id="1_ddjw6"]
+[ext_resource type="FontFile" uid="uid://bn2fng5dayskj" path="res://assets/fonts/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/kirifont/KiriFont.otf" id="3_c0sog"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mcl3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="ButtonSkill" type="TextureButton"]
+offset_right = 97.0
+offset_bottom = 96.0
+texture_normal = ExtResource("1_5q2nf")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_ddjw6")
+
+[node name="Time" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+self_modulate = Color(0.768627, 0, 0, 1)
+layout_mode = 0
+offset_right = 97.0
+offset_bottom = 97.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5mcl3")
+fill_mode = 3
+show_percentage = false
+
+[node name="Hotkey" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -48.0
+offset_right = 29.0
+offset_bottom = 7.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_c0sog")
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.86
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

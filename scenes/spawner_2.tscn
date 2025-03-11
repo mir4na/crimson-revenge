@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://3lwf10oioopf"]
+
+[ext_resource type="Script" path="res://scripts/enemy/spawner_house2.gd" id="1_l0r24"]
+[ext_resource type="PackedScene" uid="uid://peolt312vnx5" path="res://scenes/health_bar.tscn" id="2_4tf6i"]
+[ext_resource type="Texture2D" uid="uid://chhcqkv74mhp2" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House.png" id="3_r7820"]
+[ext_resource type="Texture2D" uid="uid://day7u6sfwvb4m" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House_Destroyed.png" id="4_2355k"]
+[ext_resource type="Script" path="res://scripts/enemy/spawner2_hurtbox.gd" id="5_gcbnt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r315g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r7820")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2355k")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrxul"]
+radius = 48.3738
+height = 133.707
+
+[node name="SpawnerHouse" type="Sprite2D"]
+position = Vector2(21, -161)
+scale = Vector2(1.49805, 1.17838)
+script = ExtResource("1_l0r24")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.255
+autostart = true
+
+[node name="HealthBar" parent="." instance=ExtResource("2_4tf6i")]
+offset_left = -171.719
+offset_top = -100.807
+offset_right = -42.7191
+offset_bottom = -90.8071
+max_value = 200.0
+value = 200.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.543549, -1.3593)
+sprite_frames = SubResource("SpriteFrames_r315g")
+animation = &"broken"
+
+[node name="SpawnerHurtbox" type="Area2D" parent="."]
+script = ExtResource("5_gcbnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerHurtbox"]
+position = Vector2(-2.1741, 4.75752)
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_hrxul")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

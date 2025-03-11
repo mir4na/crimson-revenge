@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv1r517d0kcwb"]
+
+[ext_resource type="Texture2D" uid="uid://chhcqkv74mhp2" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House.png" id="1_3qtkk"]
+[ext_resource type="Script" path="res://scripts/enemy/spawner_house.gd" id="2_gqk6o"]
+[ext_resource type="PackedScene" uid="uid://peolt312vnx5" path="res://scenes/health_bar.tscn" id="3_fmr0f"]
+[ext_resource type="Texture2D" uid="uid://day7u6sfwvb4m" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Buildings/Wood_House/Goblin_House_Destroyed.png" id="4_fvexc"]
+[ext_resource type="Script" path="res://scripts/enemy/spawner_hurtbox.gd" id="5_rwdbf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mtc6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3qtkk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fvexc")
+}],
+"loop": false,
+"name": &"broken",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vfj6g"]
+radius = 48.3738
+height = 133.707
+
+[node name="SpawnerHouse" type="Sprite2D"]
+position = Vector2(1, -3)
+scale = Vector2(1.83984, 1.47135)
+texture = ExtResource("1_3qtkk")
+script = ExtResource("2_gqk6o")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.092
+autostart = true
+
+[node name="HealthBar" parent="." instance=ExtResource("3_fmr0f")]
+offset_left = -171.719
+offset_top = -100.807
+offset_right = -42.7191
+offset_bottom = -90.8071
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.543549, -1.3593)
+sprite_frames = SubResource("SpriteFrames_mtc6x")
+animation = &"broken"
+frame_progress = 0.397866
+
+[node name="SpawnerHurtbox" type="Area2D" parent="."]
+script = ExtResource("5_rwdbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerHurtbox"]
+position = Vector2(-2.1741, 4.75754)
+shape = SubResource("CapsuleShape2D_vfj6g")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
